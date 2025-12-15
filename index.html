@@ -2,33 +2,65 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Tracking Test</title>
-  <!-- GTM script will go here later -->
+  <title>GA4 + GTM Tracking Test</title>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KR3R6XXT');
+  </script>
+  <!-- End Google Tag Manager -->
+
 </head>
 <body>
-  <h1>GA4 + GTM Test</h1>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KR3R6XXT"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End GTM (noscript) -->
+
+  <h1>GA4 + GTM Tracking Test</h1>
+
   <button id="signupBtn">Sign Up</button>
   <button id="signinBtn">Sign In</button>
   <button id="donateBtn">Donation Success</button>
 
   <script>
-    // Example dataLayer pushes
+    // Ensure dataLayer exists
     window.dataLayer = window.dataLayer || [];
 
+    // Sign Up event
     document.getElementById('signupBtn').addEventListener('click', () => {
-      window.dataLayer.push({ event: 'sign_up', method: 'email' });
+      window.dataLayer.push({
+        event: 'sign_up',
+        method: 'email'
+      });
       alert('Sign Up event pushed!');
     });
 
+    // Sign In event
     document.getElementById('signinBtn').addEventListener('click', () => {
-      window.dataLayer.push({ event: 'sign_in', method: 'email' });
+      window.dataLayer.push({
+        event: 'sign_in',
+        method: 'email'
+      });
       alert('Sign In event pushed!');
     });
 
+    // Donation Success event
     document.getElementById('donateBtn').addEventListener('click', () => {
-      window.dataLayer.push({ event: 'donation_success', donation_amount: 500, payment_method: 'PayMongo' });
+      window.dataLayer.push({
+        event: 'donation_success',
+        donation_amount: 500,
+        payment_method: 'PayMongo'
+      });
       alert('Donation Success event pushed!');
     });
   </script>
+
 </body>
 </html>
