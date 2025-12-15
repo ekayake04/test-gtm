@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tracking Test</title>
+  <!-- GTM script will go here later -->
+</head>
+<body>
+  <h1>GA4 + GTM Test</h1>
+  <button id="signupBtn">Sign Up</button>
+  <button id="signinBtn">Sign In</button>
+  <button id="donateBtn">Donation Success</button>
+
+  <script>
+    // Example dataLayer pushes
+    window.dataLayer = window.dataLayer || [];
+
+    document.getElementById('signupBtn').addEventListener('click', () => {
+      window.dataLayer.push({ event: 'sign_up', method: 'email' });
+      alert('Sign Up event pushed!');
+    });
+
+    document.getElementById('signinBtn').addEventListener('click', () => {
+      window.dataLayer.push({ event: 'sign_in', method: 'email' });
+      alert('Sign In event pushed!');
+    });
+
+    document.getElementById('donateBtn').addEventListener('click', () => {
+      window.dataLayer.push({ event: 'donation_success', donation_amount: 500, payment_method: 'PayMongo' });
+      alert('Donation Success event pushed!');
+    });
+  </script>
+</body>
+</html>
